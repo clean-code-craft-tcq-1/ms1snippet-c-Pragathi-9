@@ -4,10 +4,11 @@
 
 bool inputArrayisNotEmpty(int numOfValues);
 
-bool SensorReadingIsFaulty(double* value, double nextValue, double maxDelta);
+bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta);
 
-bool validateSOCreadings(double* values, int numOfValues);
+bool validateSensorReadings(double values[], int numOfValues, double deltavalue);
 
-bool validateCurrentreadings(double* values, int numOfValues);
+bool validateSOCreadings(double values[], int numOfValues);
 
-bool validateSensorReadings(double values, int numOfValues, double deltavalue);
+bool validateCurrentreadings(double values[], int numOfValues);
+
