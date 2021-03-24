@@ -23,19 +23,19 @@ bool inputArrayisNotEmpty(int numOfValues)
  }
 
 
-/********************************************************************************
- * Function: SensorReadingIsFaulty
+/**************************************************************************************
+ * Function: ConsecutiveReadingIsAbrupt
  
- * Description: A function that checks if the passed array has concurrent readings 
- * with abrupt spike or jump more than the maximum delta threshold value.
+ * Description: A function that checks if the two concurrent readings 
+ * have abrupt spike or jump more than the maximum delta threshold value.
  
- * input: input array with sensor values, range of the input array and 
- * the maximum delta threshold of a particular sensor
+ * input: two consecutive sensor values in a given array and the maximum
+ * delta threshold of a particular sensor
  
- * returns: True if the sensor readings have abrupt spike in the consecutive readings
- *********************************************************************************/
+ * returns: True if the difference between the two inputs is more than the delta value
+ **************************************************************************************/
 
-bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta)
+bool ConsecutiveReadingIsAbrupt(double value, double nextValue, double maxDelta)
 {
   if(nextValue - value > maxDelta) {
     return 1;
@@ -43,11 +43,22 @@ bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta)
   return 0;
 }
 
-bool validateSensorReadings(double values[], int numOfValues, double deltavalue)
+/********************************************************************************
+ * Function: SensorReadingIsValid
+ 
+ * Description: A function that checks if the passed array has concurrent readings 
+ * with abrupt spike or jump more than the maximum delta threshold value.
+ 
+ * input: input array with sensor values, range of the input array and 
+ * the maximum delta threshold of a particular sensor
+ 
+ * returns: True if the sensor readings DO NOT have abrupt spike in the consecutive readings
+ *********************************************************************************/
+bool SensorReadingIsValid(double values[], int numOfValues, double deltavalue)
 {
   int lastButOneIndex = numOfValues - 1;
     for(int i = 0; i < lastButOneIndex; i++) {
-      if(SensorReadingIsFaulty(values[i], values[i + 1], deltavalue)) {
+      if(ConsecutiveReadingIsAbrupt(values[i], values[i + 1], deltavalue)) {
         return 0;
       }
   }
@@ -74,7 +85,7 @@ bool validateSOCreadings(double values[], int numOfValues)
  bool validatedSOCOutput=0;
  if (inputArrayisNotEmpty(numOfValues))
   {
-    validatedSOCOutput=validateSensorReadings(values, numOfValues,DELTAMAXSOC);
+    validatedSOCOutput=SensorReadingIsValid(values, numOfValues,DELTAMAXSOC);
   }
  return (validatedSOCOutput);
 }
@@ -98,7 +109,7 @@ bool validateCurrentreadings(double values[], int numOfValues)
   bool validatedCurrentOutput=0;
   if (inputArrayisNotEmpty(numOfValues))
   {
-    validatedCurrentOutput=validateSensorReadings(values, numOfValues, DELTAMAXCURRENT);
+    validatedCurrentOutput=SensorReadingIsValid(values, numOfValues, DELTAMAXCURRENT);
   }
   return(validatedCurrentOutput);
   
