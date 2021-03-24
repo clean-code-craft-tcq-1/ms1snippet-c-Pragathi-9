@@ -43,4 +43,5 @@ TEST_CASE("current sensor is not checked for fault when a null input array is pa
   double currentReadings[] = {};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateCurrentreadings(currentReadings, numOfCurReadings) == 0);
+
 }
