@@ -15,9 +15,9 @@ Function declaration
 ***************************************************************************/
 bool inputArrayisNotEmpty(int numOfValues);
 
-bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta);
+bool ConsecutiveReadingIsAbrupt(double value, double nextValue, double maxDelta);
 
-bool validateSensorReadings(double values[], int numOfValues, double deltavalue);
+bool SensorReadingIsValid(double values[], int numOfValues, double deltavalue);
 
 bool validateSOCreadings(double values[], int numOfValues);
 
