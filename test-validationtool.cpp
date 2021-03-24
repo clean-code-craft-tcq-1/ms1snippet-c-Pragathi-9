@@ -24,7 +24,7 @@ TEST_CASE("reports error when current jumps abruptly")
   REQUIRE(validateCurrentreadings(currentReadings, numOfCurReadings) == 0);
 }
 
-TEST_CASE("sensor is not checked for fault when a null input array is passed") 
+TEST_CASE("current sensor is not checked for fault when a null input array is passed") 
 {
   double currentReadings[] = {};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
