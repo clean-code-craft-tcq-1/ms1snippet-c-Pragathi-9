@@ -7,7 +7,7 @@ bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta) {
   return 0;
 }
 
-bool validateSensorReadings(values, numOfValues, deltavalue)
+bool validateSensorReadings(double* values, numOfValues, deltavalue)
 {
   int lastButOneIndex = numOfValues - 1;
     for(int i = 0; i < lastButOneIndex; i++) {
