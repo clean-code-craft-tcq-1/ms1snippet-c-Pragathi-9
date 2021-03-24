@@ -1,6 +1,13 @@
 
-int SensorReadingIsFaulty(double value, double nextValue, double maxDelta);
+ #define DELTAMAXSOC 0.05
+ #define DELTAMAXCURRENT 0.1
 
-int validateSOCreadings(double* values, int numOfValues);
+bool inputArrayisNotEmpty(int numOfValues);
 
-int validateCurrentreadings(double* values, int numOfValues);
+bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta);
+
+bool validateSOCreadings(double* values, int numOfValues);
+
+bool validateCurrentreadings(double* values, int numOfValues);
+
+bool validateSensorReadings(double values, int numOfValues, double deltavalue);
