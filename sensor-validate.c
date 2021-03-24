@@ -1,4 +1,39 @@
+
+/**********************************************
+Include header files
+***********************************************/
 #include "sensor-validate.h"
+/*********************************************/
+/*********************************************
+Function definitions
+**********************************************/
+
+/********************************************************************************
+ * Function: inputArrayisNotEmpty
+ 
+ * Description: A function that checks if the passed array is a null.
+ 
+ * input: range of the input array
+ 
+ * returns: True if the array is not empty
+ *********************************************************************************/
+bool inputArrayisNotEmpty(int numOfValues)
+ {
+   return (numOfValues>0 ? 1:0);
+ }
+
+
+/********************************************************************************
+ * Function: SensorReadingIsFaulty
+ 
+ * Description: A function that checks if the passed array has concurrent readings 
+ * with abrupt spike or jump more than the maximum delta threshold value.
+ 
+ * input: input array with sensor values, range of the input array and 
+ * the maximum delta threshold of a particular sensor
+ 
+ * returns: True if the sensor readings have abrupt spike in the consecutive readings
+ *********************************************************************************/
 
 bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta)
 {
@@ -19,11 +54,20 @@ bool validateSensorReadings(double values[], int numOfValues, double deltavalue)
   return 1;
 }
 
- bool inputArrayisNotEmpty(int numOfValues)
- {
-   return (numOfValues>0 ? 1:0);
- }
-
+/********************************************************************************
+ * Function: validateSOCreadings
+ 
+ * Description: A function that validates the passed array of SOC valules 
+ * has concurrent readings with abrupt spike or jump more than the maximum delta 
+ * threshold value. 
+ * It doesn't check the sensor validation if the array is null
+ 
+ * Input: input array with SOC sensor values, range of the input array and 
+ * the maximum delta threshold of a SOC Calculating sensor
+ 
+ * returns: True if the sensor readings have abrupt spike in the consecutive readings
+ *********************************************************************************/
+ 
 bool validateSOCreadings(double values[], int numOfValues) 
 {
 
@@ -35,6 +79,20 @@ bool validateSOCreadings(double values[], int numOfValues)
  return (validatedSOCOutput);
 }
 
+
+/********************************************************************************
+ * Function: validateCurrentreadings
+ 
+ * Description: A function that validates the passed array of current valules 
+ * has concurrent readings with abrupt spike or jump more than the maximum delta 
+ * threshold value. 
+ * It doesn't check the sensor validation if the array is null
+ 
+ * Input: input array with current sensor values, range of the input array and 
+ * the maximum delta threshold of a current Calculating sensor
+ 
+ * returns: True if the sensor readings have abrupt spike in the consecutive readings
+ *********************************************************************************/
 bool validateCurrentreadings(double values[], int numOfValues) 
 {
   bool validatedCurrentOutput=0;
