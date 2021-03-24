@@ -4,7 +4,7 @@
 
 bool inputArrayisNotEmpty(int numOfValues);
 
-bool SensorReadingIsFaulty(double value, double nextValue, double maxDelta);
+bool SensorReadingIsFaulty(double* value, double nextValue, double maxDelta);
 
 bool validateSOCreadings(double* values, int numOfValues);
 
