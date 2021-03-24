@@ -1,6 +1,25 @@
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta);
+/*Header file*/
+/* Indlude header files if any */
+/**********************************************
 
-int validateSOCreadings(double* values, int numOfValues);
+***********************************************/
+/* Define Macros*/
+/**********************************************/
+ #define DELTAMAXSOC 0.05
+ #define DELTAMAXCURRENT 0.1
+/**********************************************/
 
-int validateCurrentreadings(double* values, int numOfValues);
+/****************************************************************************
+Function declaration
+***************************************************************************/
+bool inputArrayisNotEmpty(int numOfValues);
+
+bool ConsecutiveReadingIsAbrupt(double value, double nextValue, double maxDelta);
+
+bool SensorReadingIsValid(double values[], int numOfValues, double deltavalue);
+
+bool validateSOCreadings(double values[], int numOfValues);
+
+bool validateCurrentreadings(double values[], int numOfValues);
+
