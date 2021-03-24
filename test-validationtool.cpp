@@ -33,7 +33,7 @@ TEST_CASE("reports error when current jumps abruptly")
 
 TEST_CASE("Validation is positive when there are no abrupt spike in current ") 
 {
-  double currentReadings[] = {0.4, 0.45, 0.55, 0.62, 0.7, 0.75};
+  double currentReadings[] = {0.4, 0.45, 0.5, 0.58, 0.62, 0.65};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateCurrentreadings(currentReadings, numOfCurReadings) == 1);
 }
